@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep — General Counsel at Plaee</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #181b24;
+    --card-alt: #1e2230;
+    --accent: #6c63ff;
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --accent4: #ffd93d;
+    --text: #e4e6eb;
+    --text-muted: #8b8fa3;
+    --border: #2a2e3d;
+    --success: #00d4aa;
+    --warning: #ffd93d;
+    --danger: #ff6b6b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #0f1117 40%, #1a1040 70%, #0f1117 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(0,212,170,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(108,99,255,0.06) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #a0ffd6 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+  }
+  .hero .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 8px; }
+  .hero .company-badge {
+    display: inline-block;
+    background: rgba(0,212,170,0.15);
+    border: 1px solid rgba(0,212,170,0.3);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #a0ffd6;
+    margin-top: 16px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  nav.toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 48px;
+  }
+  nav.toc h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  nav.toc ol { list-style: none; counter-reset: toc; columns: 2; gap: 32px; }
+  nav.toc li { counter-increment: toc; margin-bottom: 10px; }
+  nav.toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    color: var(--accent2);
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 0.85rem;
+  }
+  nav.toc a { color: var(--text); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+  nav.toc a:hover { color: var(--accent2); }
+  section { margin-bottom: 56px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-number {
+    background: var(--accent2);
+    color: #0f1117;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(0,212,170,0.3); }
+  .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+  .card h4 { font-size: 1rem; font-weight: 600; margin: 18px 0 10px; color: var(--accent2); }
+  .card p, .card li { color: var(--text); font-size: 0.95rem; line-height: 1.75; }
+  .card ul, .card ol { padding-left: 20px; margin: 10px 0; }
+  .card li { margin-bottom: 8px; }
+  .highlight {
+    background: rgba(108,99,255,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+  .highlight.green { background: rgba(0,212,170,0.08); border-left-color: var(--accent2); }
+  .highlight.red { background: rgba(255,107,107,0.08); border-left-color: var(--danger); }
+  .highlight.yellow { background: rgba(255,217,61,0.08); border-left-color: var(--accent4); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+  }
+  .tag.purple { background: rgba(108,99,255,0.15); color: #c4bfff; }
+  .tag.green { background: rgba(0,212,170,0.15); color: #00d4aa; }
+  .tag.red { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+  .tag.yellow { background: rgba(255,217,61,0.15); color: #ffd93d; }
+  .tag.blue { background: rgba(59,130,246,0.15); color: #93bbfc; }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  table thead th {
+    background: var(--card-alt);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  table thead th:first-child { border-radius: 8px 0 0 0; }
+  table thead th:last-child { border-radius: 0 8px 0 0; }
+  table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(42,46,61,0.5);
+    color: var(--text);
+  }
+  table tr:last-child td { border-bottom: none; }
+  table tr:hover td { background: rgba(0,212,170,0.04); }
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .q-card .q-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .q-card .question { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 12px; }
+  .q-card .guidance {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+  }
+  .q-card .guidance strong { color: var(--text); }
+  .avoid-card {
+    background: rgba(255,107,107,0.05);
+    border: 1px solid rgba(255,107,107,0.2);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .avoid-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: rgba(255,107,107,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--danger);
+    font-weight: 700;
+  }
+  .avoid-card h4 { font-size: 0.95rem; color: var(--danger); margin-bottom: 6px; }
+  .avoid-card p { font-size: 0.9rem; color: var(--text-muted); }
+  .do-card {
+    background: rgba(0,212,170,0.05);
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .do-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: rgba(0,212,170,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+  .do-card h4 { font-size: 0.95rem; color: var(--accent2); margin-bottom: 6px; }
+  .do-card p { font-size: 0.9rem; color: var(--text-muted); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .kpi {
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .kpi .value { font-size: 1.6rem; font-weight: 800; color: var(--accent2); margin-bottom: 4px; }
+  .kpi .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .timeline { position: relative; padding-left: 28px; margin: 20px 0; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 20px; padding-left: 20px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px; top: 8px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--bg);
+  }
+  .timeline-item .date { font-size: 0.8rem; color: var(--accent2); font-weight: 600; margin-bottom: 4px; }
+  .timeline-item .event { font-size: 0.9rem; color: var(--text); }
+  .profile-match {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .profile-match .cell { background: var(--card); padding: 16px 20px; font-size: 0.9rem; }
+  .profile-match .cell.header {
+    background: var(--card-alt);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .match-strong { color: var(--accent2); }
+  .match-partial { color: var(--accent4); }
+  .source {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .source a { color: var(--accent); text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    nav.toc ol { columns: 1; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .profile-match { grid-template-columns: 1fr; }
+    .hero { padding: 48px 20px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Interview Preparation Guide</h1>
+    <p class="subtitle">General Counsel &mdash; Plaee</p>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">Ramat Gan, Israel &bull; Prediction Markets &amp; Sweepstakes Turnkey Platform</p>
+    <span class="company-badge">Founded 2025 &bull; Part of inabit Group &bull; Crypto.com Partnership &bull; CFTC-Regulated Infrastructure</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <nav class="toc" id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Company Deep Dive &mdash; Plaee</a></li>
+      <li><a href="#s2">The inabit Group &mdash; Parent Company</a></li>
+      <li><a href="#s3">Role Analysis &amp; Your Fit</a></li>
+      <li><a href="#s4">Legal &amp; Regulatory Landscape</a></li>
+      <li><a href="#s5">Competitors &amp; Market Context</a></li>
+      <li><a href="#s6">Likely Interview Questions</a></li>
+      <li><a href="#s7">Smart Questions to Ask Them</a></li>
+      <li><a href="#s8">How to Project Confidence</a></li>
+      <li><a href="#s9">Things to Avoid Saying</a></li>
+      <li><a href="#s10">Final Cheat Sheet</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: COMPANY DEEP DIVE -->
+  <!-- ============================================================ -->
+  <section id="s1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <h2>Company Deep Dive &mdash; Plaee</h2>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="value">2025</div><div class="label">Founded</div></div>
+      <div class="kpi"><div class="value">11-50</div><div class="label">Employees</div></div>
+      <div class="kpi"><div class="value">B2B</div><div class="label">Primary Model</div></div>
+      <div class="kpi"><div class="value">Dual-Track</div><div class="label">US &amp; Global</div></div>
+    </div>
+
+    <div class="card">
+      <h3>What Plaee Does</h3>
+      <p>Plaee is a <strong>turnkey technology provider</strong> for the next generation of prediction markets and sweepstakes gaming. Unlike consumer-facing platforms such as Kalshi or Polymarket, Plaee operates <strong>entirely B2B</strong> &mdash; its clients are operators who want to launch prediction market or sweepstakes casino platforms under their own brand without building the underlying technology.</p>
+      <p style="margin-top:12px;">The company provides a complete stack: a regulated exchange in the US, deep liquidity, advanced monetization tools, and a customizable user interface &mdash; all bundled into a single deployable product that reduces time-to-market from months to weeks.</p>
+      <div class="highlight green">
+        <strong>Key differentiator:</strong> Plaee is the first platform to offer operators a turnkey solution combining a regulated US exchange, deep liquidity, advanced CRM &amp; retention tools, and a customizable white-label UI &mdash; all in one package.
+      </div>
+      <div class="source">Source: <a href="https://www.plaee.com/" target="_blank">plaee.com</a> &bull; <a href="https://aijourn.com/plaee-launches-turnkey-platform-for-prediction-markets-operators/" target="_blank">AI Journal</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Dual-Track Solution</h3>
+      <div class="grid-2">
+        <div>
+          <h4>United States Track</h4>
+          <ul>
+            <li>Fully <strong>CFTC-regulated</strong> infrastructure</li>
+            <li>Delivered through exclusive partnership with <strong>Crypto.com Derivatives North America</strong> (CDNA)</li>
+            <li>Institutional-grade compliance and security</li>
+            <li>Operators can enter as Third-Party Service Provider (TSP), Introducing Broker (IB), or Futures Commission Merchant (FCM)</li>
+            <li>Covers sports, politics, and macroeconomic prediction markets</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Global Track</h4>
+          <ul>
+            <li><strong>Plaee DPM</strong> &mdash; proprietary decentralized prediction market exchange</li>
+            <li>On-blockchain DeFi trading platform</li>
+            <li>Self-custodial architecture on <strong>Polygon</strong> and <strong>Solana</strong></li>
+            <li>Smart contract-based settlement with oracle decisions</li>
+            <li>High-performance on-chain secure execution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="source">Source: <a href="https://crypto.com/us/company-news/plaee-partners-with-cryptocom-to-launch-cftc-compliant-prediction-market-technology-infrastructure-in-the-us" target="_blank">Crypto.com News</a> &bull; <a href="https://www.plaee.com/prediction/platform" target="_blank">Plaee Prediction Platform</a></div>
+    </div>
+
+    <div class="card">
+      <h3>PlaeeOS &mdash; The Operating System</h3>
+      <p><strong>PlaeeOS</strong> is Plaee&rsquo;s integrated backoffice platform that serves as the command center for operators. It combines:</p>
+      <ul>
+        <li><strong>CRM &amp; Player Engagement:</strong> Real-time segmentation, loyalty frameworks, AI-powered retention modules</li>
+        <li><strong>BI &amp; Analytics:</strong> Business intelligence dashboards translating real-time data into actionable insights</li>
+        <li><strong>Backoffice:</strong> Account management, compliance monitoring, policy enforcement</li>
+        <li><strong>Monetization:</strong> Advanced tools to drive engagement and revenue</li>
+      </ul>
+      <p style="margin-top:12px;">Deployment options range from co-branded widgets to full white-label platforms, with API-first architecture (RESTful APIs, WebSocket feeds, SDKs).</p>
+      <div class="source">Source: <a href="https://www.linkedin.com/company/plaee/about/" target="_blank">Plaee LinkedIn</a></div>
+    </div>
+
+    <div class="card">
+      <h3>B2C Gaming Brands</h3>
+      <p>In addition to the B2B platform business, the job posting indicates Plaee also operates <strong>B2C gaming brands</strong>. This dual model means the General Counsel must manage legal work for both:</p>
+      <ul>
+        <li><strong>B2B:</strong> Commercial agreements with operators, licensing, technology partnerships, IP protection</li>
+        <li><strong>B2C:</strong> Consumer-facing compliance (KYC/AML), marketing regulations, player protection, gambling law compliance, sweepstakes legal frameworks</li>
+      </ul>
+      <div class="highlight yellow">
+        <strong>Interview insight:</strong> The B2B/B2C dual model creates unique legal complexity &mdash; you need to show you can handle both infrastructure licensing and consumer protection simultaneously.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Key Leadership &amp; Team</h3>
+      <table>
+        <thead><tr><th>Name</th><th>Role</th><th>Key Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Leon Okun</strong></td><td>CEO &amp; Founder</td><td>Also founder of inabit; background in finance and software; moved from crypto trading into DeFi infrastructure</td></tr>
+          <tr><td><strong>Liron Izkoviz</strong></td><td>COO</td><td>Previously at Proftit (Product Manager to BD) and Affilomania (B2C Operations Manager). Praised inabit: &ldquo;inabit gave us the speed of a payment processor with the transparency and security of self-custody&rdquo;</td></tr>
+          <tr><td><strong>Georgy Glezer</strong></td><td>CTO</td><td>Programmer and fullstack developer based in Herzliya, Israel</td></tr>
+          <tr><td><strong>Liad Evron</strong></td><td>HR Business Partner</td><td>Job poster for this role; focus on organizational development and scaling tech startups</td></tr>
+          <tr><td><strong>Libi Milshtein</strong></td><td>PR/Communications</td><td>Named as media contact in press releases</td></tr>
+        </tbody>
+      </table>
+      <div class="source">Source: <a href="https://www.zoominfo.com/p/Leon-Okun/1475008675" target="_blank">ZoomInfo</a> &bull; <a href="https://www.linkedin.com/in/leonokun/" target="_blank">Leon Okun LinkedIn</a> &bull; <a href="https://www.globenewswire.com/news-release/2026/04/20/3276726/0/en/Plaee-Expands-Its-Focus-as-Prediction-Markets-Gain-Momentum.html" target="_blank">GlobeNewsWire</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Crypto.com Partnership Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">2022</div>
+          <div class="event"><strong>inabit founded</strong> &mdash; Self-custodial crypto infrastructure company launched by Leon Okun</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2025</div>
+          <div class="event"><strong>Plaee launched</strong> &mdash; Turnkey prediction market &amp; sweepstakes platform spun up from the inabit group</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">January 2026</div>
+          <div class="event"><strong>Crypto.com partnership announced</strong> &mdash; Strategic technology partnership with Crypto.com Derivatives North America to provide CFTC-compliant prediction market infrastructure</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">April 2026</div>
+          <div class="event"><strong>Plaee expands focus</strong> &mdash; GlobeNewsWire press release announcing expansion as prediction markets gain momentum; headquarters listed as Limassol, Cyprus</div>
+        </div>
+      </div>
+      <div class="source">Source: <a href="https://crypto.com/us/company-news/plaee-partners-with-cryptocom-to-launch-cftc-compliant-prediction-market-technology-infrastructure-in-the-us" target="_blank">Crypto.com</a> &bull; <a href="https://www.globenewswire.com/news-release/2026/04/20/3276726/0/en/Plaee-Expands-Its-Focus-as-Prediction-Markets-Gain-Momentum.html" target="_blank">GlobeNewsWire</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Compliance &amp; Certifications</h3>
+      <ul>
+        <li><strong>SOC 2 Type II</strong> certified</li>
+        <li><strong>GDPR</strong> compliant</li>
+        <li><strong>CCPA</strong> compliant</li>
+        <li>Real-time compliance monitoring capabilities</li>
+        <li>CFTC-licensed infrastructure through Crypto.com CDNA partnership (Plaee itself does not hold its own DCM license)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Sweepstakes Platform (plaee.io)</h3>
+      <p>In addition to the prediction market platform at plaee.com, Plaee operates a separate sweepstakes casino platform at <strong>plaee.io</strong>. This is a turnkey B2B sweepstakes social casino with:</p>
+      <ul>
+        <li>Dual-currency model (Gold Coins + Sweepstakes Coins)</li>
+        <li>Pre-integrated game providers: <strong>Evolution, Pragmatic Play, NetEnt</strong></li>
+        <li>Payment processors: Visa, Mastercard, American Express, Nuvei, Paysafe, Skrill, Finix</li>
+        <li>Full CRM, BI dashboards, brand customization, and mobile optimization</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Important Background Context</h3>
+      <div class="highlight yellow">
+        <strong>Be aware:</strong> Leon Okun&rsquo;s earlier career includes involvement with <strong>SpotOption</strong>, a provider of binary options trading platforms. The Israeli binary options industry was controversial and ultimately banned in Israel in 2018. While Okun&rsquo;s current ventures (inabit and Plaee) are focused on legitimate, regulated markets, it is worth being aware of this background in case it comes up. Plaee&rsquo;s emphasis on CFTC-regulated infrastructure and compliance certifications can be seen partly as a deliberate positioning away from any regulatory ambiguity.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: INABIT GROUP -->
+  <!-- ============================================================ -->
+  <section id="s2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <h2>The inabit Group &mdash; Parent Company</h2>
+    </div>
+
+    <div class="card">
+      <h3>What is inabit?</h3>
+      <p><strong>inabit</strong> is a self-custodial crypto infrastructure company that provides payments, wallets, and on/off-ramp solutions for businesses. Founded in <strong>2022</strong> in Israel by <strong>Leon Okun</strong> (who also founded Plaee), inabit enables enterprises to accept, manage, and move digital assets across multiple blockchains securely.</p>
+      <div class="highlight">
+        <strong>The Connection:</strong> Leon Okun is the founder of both companies. inabit provides the self-custodial crypto wallet infrastructure that underpins Plaee&rsquo;s payment and custody capabilities. Plaee&rsquo;s COO Liron Izkoviz has publicly praised inabit&rsquo;s technology, and Plaee is listed as a key customer/partner of inabit.
+      </div>
+      <div class="source">Source: <a href="https://inabit.com/" target="_blank">inabit.com</a> &bull; <a href="https://www.crunchbase.com/organization/inabit" target="_blank">Crunchbase</a></div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="value">2022</div><div class="label">Founded</div></div>
+      <div class="kpi"><div class="value">100+</div><div class="label">Clients</div></div>
+      <div class="kpi"><div class="value">$Billions</div><div class="label">Monthly TX Volume</div></div>
+      <div class="kpi"><div class="value">SOC 2</div><div class="label">Type II Certified</div></div>
+    </div>
+
+    <div class="card">
+      <h3>inabit Products &amp; Services</h3>
+      <div class="grid-2">
+        <div>
+          <h4>Treasury Platform</h4>
+          <p>Self-custodial wallet infrastructure for crypto management across organizations. Multi-chain wallet creation, policy engine with automated rule enforcement, multi-user governance with role-based permissions.</p>
+        </div>
+        <div>
+          <h4>Terminal (Payment Gateway)</h4>
+          <p>Production-ready payments layer for processing transactions across blockchains. Point-of-Sale functionality, transaction monitoring, and audit trails.</p>
+        </div>
+        <div>
+          <h4>Asset Conversion</h4>
+          <p>Currency conversion capabilities supporting 150+ currencies across 50+ countries. Fast USD-to-crypto conversions with T+0 settlements.</p>
+        </div>
+        <div>
+          <h4>On/Off-Ramps</h4>
+          <p>Fintech solutions enabling fiat-to-crypto and crypto-to-fiat conversions integrated with banking rails.</p>
+        </div>
+      </div>
+      <div class="source">Source: <a href="https://inabit.com/" target="_blank">inabit.com</a> &bull; <a href="https://docs.inabit.com/" target="_blank">inabit API Docs</a></div>
+    </div>
+
+    <div class="card">
+      <h3>inabit Leadership Team</h3>
+      <table>
+        <thead><tr><th>Name</th><th>Role</th><th>Notable Background</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Leon Okun</strong></td><td>Founder</td><td>Also CEO &amp; Founder of Plaee; finance &amp; software background</td></tr>
+          <tr><td><strong>Itamar Korkos</strong></td><td>COO</td><td>Operational leadership across inabit</td></tr>
+          <tr><td><strong>Dr. Moti Geva</strong></td><td>CTO</td><td>Former Head of Israel&rsquo;s National CERT (CERT-IL); cybersecurity expert</td></tr>
+          <tr><td><strong>Tomer Shaham</strong></td><td>CPO</td><td>Product strategy for the crypto infrastructure stack</td></tr>
+          <tr><td><strong>Eli Hallufgil</strong></td><td>VP R&amp;D</td><td>Engineering leadership</td></tr>
+        </tbody>
+      </table>
+      <div class="source">Source: <a href="https://inabit.com/company/about" target="_blank">inabit About</a> &bull; <a href="https://www.zoominfo.com/c/inabit-tech-ltd/538834079" target="_blank">ZoomInfo</a></div>
+    </div>
+
+    <div class="card">
+      <h3>inabit Technology &amp; Security</h3>
+      <ul>
+        <li><strong>Trusted Computing Mechanism (TCM):</strong> Proprietary technology for safeguarding private keys without traditional custodians</li>
+        <li><strong>Self-custodial architecture:</strong> Organizations control their own keys; inabit never holds client funds</li>
+        <li><strong>Blockchain support:</strong> Ethereum, Tron, Bitcoin, BNB Chain, with ongoing expansions including EIP-7702 support</li>
+        <li><strong>Google Cloud collaboration:</strong> Referenced in Google case study for confidential computing</li>
+        <li><strong>98%+ uptime SLA</strong> guarantee with encrypted data storage</li>
+      </ul>
+      <div class="highlight green">
+        <strong>Legal relevance:</strong> As GC of the Plaee group, understanding inabit&rsquo;s self-custodial model is critical &mdash; it shifts legal liability because the company never takes custody of client assets, which has significant regulatory implications.
+      </div>
+      <div class="source">Source: <a href="https://www.benzinga.com/partner/general/26/01/49759002/leon-okun-enterprise-crypto-keeps-dropping-the-keys-and-this-startup-is-pushing-back" target="_blank">Benzinga</a> &bull; <a href="https://ceoworld.biz/2026/01/10/leading-with-infrastructure-how-ceos-like-leon-okun-are-building-the-future-of-crypto/" target="_blank">CEOWORLD Magazine</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Funding &amp; Investors</h3>
+      <p>inabit raised a <strong>seed round in March 2022</strong> (amount undisclosed per Crunchbase). The company is a <strong>Google Cloud ISV Startup Springboard Program</strong> participant and has a collaboration with Google Cloud for confidential computing. It serves clients including Pragmatic Solutions, RyzenPay, Aurora, BlockChanger, and Plaee.</p>
+      <p style="margin-top:10px;">Pricing tiers range from Free to Enterprise ($825/month), indicating a self-sustaining SaaS revenue model.</p>
+      <div class="source">Source: <a href="https://www.crunchbase.com/funding_round/inabit-seed--baeb1ff8" target="_blank">Crunchbase - inabit Seed Round</a> &bull; <a href="https://www.cbinsights.com/company/inabit" target="_blank">CB Insights</a></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: ROLE ANALYSIS & YOUR FIT -->
+  <!-- ============================================================ -->
+  <section id="s3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <h2>Role Analysis &amp; Your Fit</h2>
+    </div>
+
+    <div class="card">
+      <h3>Role Overview</h3>
+      <p>This is a <strong>senior leadership position</strong> serving as the sole General Counsel for the entire Plaee group. You would own every legal aspect of the business &mdash; from commercial contracts and corporate governance to regulatory compliance and IP protection &mdash; across both the B2B platform and B2C gaming operations.</p>
+      <div class="highlight">
+        <strong>Key insight:</strong> This is a build-from-scratch role. The company was founded in 2025, has 11-50 employees, and is hiring its first General Counsel. You would be establishing the legal function, not inheriting one.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Profile Match Matrix</h3>
+      <div class="profile-match">
+        <div class="cell header">Requirement</div>
+        <div class="cell header">Your Fit</div>
+
+        <div class="cell"><strong>Qualified attorney in gaming/fintech/tech</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; 12+ years legal experience; GC at dWallet Labs (crypto/DeFi); Head of Legal at Odsy Foundation (Switzerland); deep Web3/crypto expertise</div>
+
+        <div class="cell"><strong>Commercial law &amp; corporate governance</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; Own law firm since Jan 2024; extensive experience at Vardi Leshem Ron (2018-2023) handling commercial contracts and corporate matters</div>
+
+        <div class="cell"><strong>Compliance &amp; AML management</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; Direct crypto compliance experience from dWallet Labs and Odsy Foundation; understands KYC/AML frameworks in digital asset context</div>
+
+        <div class="cell"><strong>Cross-jurisdictional legal work</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; Worked across Israel, Switzerland (Odsy Foundation), China (Beijing foreign investment 2014-2015); multi-jurisdictional crypto regulatory experience</div>
+
+        <div class="cell"><strong>Gaming/sweepstakes experience</strong></div>
+        <div class="cell"><span class="match-partial">GROWTH AREA</span> &mdash; No direct gaming/sweepstakes experience, but crypto/DeFi regulatory knowledge transfers strongly to prediction markets</div>
+
+        <div class="cell"><strong>US operators/sweepstakes frameworks</strong></div>
+        <div class="cell"><span class="match-partial">GROWTH AREA</span> &mdash; Need to learn CFTC event contract rules and US sweepstakes models, but strong regulatory instincts from crypto law</div>
+
+        <div class="cell"><strong>Fast-paced, product-driven environment</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; Current dual role as GC at dWallet Labs + own firm proves ability to work autonomously in fast-moving startup environments</div>
+
+        <div class="cell"><strong>Technology platforms &amp; online payments</strong></div>
+        <div class="cell"><span class="match-strong">STRONG</span> &mdash; dWallet Labs (programmable signing), Odsy Foundation (decentralized custody) &mdash; direct experience with technology platforms and crypto payments</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Why You Should Highlight</h3>
+      <div class="grid-2">
+        <div>
+          <h4>Crypto-Native Legal Expertise</h4>
+          <p>Your work with dWallet Labs and Odsy Foundation makes you one of the rare lawyers who genuinely understands self-custodial architecture, DeFi protocols, and blockchain infrastructure &mdash; the exact technology stack underlying both Plaee and inabit.</p>
+        </div>
+        <div>
+          <h4>Building Legal Functions from Zero</h4>
+          <p>Running your own law firm while simultaneously serving as GC shows you can build legal operations from scratch &mdash; precisely what this role requires at an early-stage company.</p>
+        </div>
+        <div>
+          <h4>Multi-Jurisdictional Regulatory Navigation</h4>
+          <p>From Swiss crypto regulation to Israeli law to Chinese foreign investment &mdash; you&rsquo;ve navigated legal systems across continents. Plaee operates from Israel/Cyprus with US-facing CFTC-regulated products.</p>
+        </div>
+        <div>
+          <h4>Self-Custodial &amp; DeFi Understanding</h4>
+          <p>inabit&rsquo;s core value proposition is self-custodial infrastructure (TCM technology). Your experience with Odsy Foundation&rsquo;s decentralized custody and dWallet&rsquo;s programmable signing gives you rare legal insight into these architectures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: LEGAL & REGULATORY LANDSCAPE -->
+  <!-- ============================================================ -->
+  <section id="s4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <h2>Legal &amp; Regulatory Landscape</h2>
+    </div>
+
+    <div class="card">
+      <h3>CFTC &amp; Prediction Markets (Event Contracts)</h3>
+      <p>The regulatory environment for prediction markets is evolving rapidly. Here are the key facts:</p>
+
+      <h4>KalshiEx LLC v. CFTC (2024-2025) &mdash; Landmark Case</h4>
+      <ul>
+        <li>In September 2024, a DC District Court ruled in Kalshi&rsquo;s favor, finding that the CFTC exceeded its statutory authority in blocking political event contracts</li>
+        <li>The court held that Kalshi&rsquo;s political events contracts did <strong>not</strong> involve &ldquo;unlawful activity&rdquo; or &ldquo;gaming&rdquo; under the CEA</li>
+        <li>The DC Circuit denied the CFTC&rsquo;s emergency stay request</li>
+        <li>In May 2025, the CFTC dropped its appeal after the change in administration</li>
+        <li>Result: <strong>Political event contracts on CFTC-registered exchanges are now permissible</strong></li>
+      </ul>
+
+      <h4>2026 Regulatory Shift</h4>
+      <ul>
+        <li><strong>January 2026:</strong> CFTC Chair Michael Selig announced prediction markets rulemaking</li>
+        <li><strong>February 2026:</strong> CFTC withdrew prior proposed rule that would have prohibited political and sports event contracts; filed amicus brief asserting &ldquo;exclusive jurisdiction&rdquo; over event contracts (vs. state regulation)</li>
+        <li><strong>March 2026:</strong> CFTC issued Staff Letter No. 26-08 detailing views on event contract regulation; published ANPRM requesting comment on broad event contract regulation issues</li>
+        <li><strong>Market growth:</strong> Event contract listings surged from ~5/year (2006-2020) to ~1,600 in 2025</li>
+        <li>DCM applications have more than doubled, with most from prediction market operators</li>
+      </ul>
+      <div class="source">Source: <a href="https://www.sidley.com/en/insights/newsupdates/2026/02/us-cftc-signals-imminent-rulemaking-on-prediction-markets" target="_blank">Sidley Austin</a> &bull; <a href="https://www.federalregister.gov/documents/2026/03/16/2026-05105/prediction-markets" target="_blank">Federal Register ANPRM</a> &bull; <a href="https://www.gtlaw.com/en/insights/2026/3/cftc-regulatory-developments-on-prediction-markets-and-event-contracts" target="_blank">Greenberg Traurig</a> &bull; <a href="https://www.bhfs.com/insight/kalshi-v-cftc-challenges-contracts-on-political-events/" target="_blank">Brownstein (Kalshi v. CFTC)</a></div>
+    </div>
+
+    <div class="card">
+      <h3>CFTC Insider Trading &amp; Enforcement</h3>
+      <ul>
+        <li><strong>February 2026:</strong> CFTC issued advisory addressing insider trading on prediction markets, following two Kalshi enforcement cases</li>
+        <li>One case involved a <strong>political candidate trading on his own candidacy</strong> (May 2025)</li>
+        <li>In March 2026, Kalshi imposed bans on political candidates betting on their own markets and restricted sports participants from related event trading</li>
+        <li>Rep. Ritchie Torres introduced the <strong>Public Integrity in Financial Prediction Markets Act of 2026</strong> to ban federal employees from trading on outcomes they might influence</li>
+      </ul>
+      <div class="highlight red">
+        <strong>Interview relevance:</strong> As GC, you would need to build internal policies preventing insider trading on Plaee&rsquo;s platform &mdash; particularly for any B2C markets. This is a cutting-edge compliance challenge.
+      </div>
+      <div class="source">Source: <a href="https://www.cftc.gov/PressRoom/PressReleases/9185-26" target="_blank">CFTC Press Release</a> &bull; <a href="https://www.lowenstein.com/news-insights/publications/client-alerts/cftc-and-kalshi-announce-enforcement-actions-targeting-prediction-markets-fctm" target="_blank">Lowenstein Sandler</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Sweepstakes Casino Legal Framework (US)</h3>
+      <p>Plaee&rsquo;s sweepstakes business operates in an increasingly challenged legal environment:</p>
+
+      <h4>How Sweepstakes Casinos Work</h4>
+      <ul>
+        <li>Players use <strong>Gold Coins (GC)</strong> for casual play (purchased, no cash value) and <strong>Sweepstakes Coins (SC)</strong> for prize-eligible play</li>
+        <li>SC can be obtained free (mail-in, bonus with GC purchase) &mdash; this removes the &ldquo;consideration&rdquo; element from the gambling definition</li>
+        <li>Legal argument: Not gambling because <strong>no purchase is necessary</strong> to enter the sweepstakes</li>
+      </ul>
+
+      <h4>2025-2026 State Bans &mdash; Critical Threat</h4>
+      <ul>
+        <li><strong>13 US states now ban sweepstakes casinos</strong> (as of April 2026), including: California, New York, Connecticut, Montana, New Jersey, Nevada, Indiana, Maine, and others</li>
+        <li>California&rsquo;s ban (AB 831, effective Jan 1, 2026) had outsized impact &mdash; accounted for 17-20% of total US sweepstakes revenue</li>
+        <li>Montana (SB 555) imposes penalties up to <strong>$50K fines and 10 years in prison</strong>; New Jersey imposes <strong>$25K-$250K civil penalties</strong> per violation</li>
+        <li>Florida&rsquo;s HB 591 is moving through committee in 2026 with <strong>felony-level penalties</strong></li>
+        <li>Tennessee AG issued cease-and-desist to ~40 operators (Dec 2025); SB 2136 passed Senate 32-0 (March 2026)</li>
+        <li><strong>100+ class action lawsuits</strong> filed against sweepstakes casinos in 2025</li>
+        <li>Market revenue revised downward: Eilers &amp; Krejcik forecast $5.6B for 2026 (down from $7.7B projection), a 10% contraction</li>
+      </ul>
+      <div class="highlight yellow">
+        <strong>Strategic implication:</strong> The sweepstakes model is under pressure. Plaee&rsquo;s GC will need to navigate a patchwork of state bans, advise on which markets remain viable, and potentially develop alternative legal frameworks.
+      </div>
+      <div class="source">Source: <a href="https://company.gi/blog/sweepstakes-casino-regulation-us" target="_blank">GI Blog</a> &bull; <a href="https://igamingbusiness.com/legal-compliance/2025-sweepstakes-casinos-year-in-review/" target="_blank">iGaming Business</a> &bull; <a href="https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2025/sweepstakes-gaming-emerging-industry-primer.pdf" target="_blank">KPMG Sweepstakes Primer</a></div>
+    </div>
+
+    <div class="card">
+      <h3>DeFi Prediction Markets &amp; Regulatory Challenges</h3>
+      <p>Plaee&rsquo;s global track uses self-custodial DeFi architecture &mdash; this creates unique legal questions:</p>
+      <ul>
+        <li><strong>Polymarket:</strong> Relaunched in US (Dec 2025) after acquiring QCEX for $112M (CFTC license). But faces state-level opposition: Nevada enforcement action, Tennessee cease-and-desist, Massachusetts preliminary injunction</li>
+        <li><strong>International bans:</strong> Polymarket banned/blocked in 33+ countries including Portugal, Hungary, Brazil, Indonesia</li>
+        <li><strong>Third Circuit ruling (April 2026):</strong> Strengthened prediction markets by holding that CFTC has jurisdiction over sports event contracts, pre-empting state gambling laws</li>
+        <li><strong>Self-custodial implications:</strong> When users control their own keys (inabit&rsquo;s model), the platform may argue it doesn&rsquo;t take custody of funds, potentially limiting regulatory exposure</li>
+      </ul>
+      <div class="source">Source: <a href="https://www.gamblinginsider.com/in-depth/106291/is-polymarket-legal-in-the-us" target="_blank">Gambling Insider</a> &bull; <a href="https://en.wikipedia.org/wiki/Polymarket" target="_blank">Polymarket Wikipedia</a></div>
+    </div>
+
+    <div class="card">
+      <h3>State vs. Federal Jurisdiction Battle</h3>
+      <p>A critical legal battleground for Plaee&rsquo;s US operations:</p>
+      <ul>
+        <li>CFTC asserts <strong>exclusive federal jurisdiction</strong> over event contracts traded on derivatives exchanges</li>
+        <li>Multiple states (Nevada, Massachusetts, New Jersey, Tennessee) are pushing back, arguing prediction markets are gambling subject to state law</li>
+        <li><strong>Third Circuit (April 2026):</strong> Ruled that CEA pre-empts New Jersey gambling laws for sports event contracts on DCMs</li>
+        <li>But <strong>Massachusetts (Jan 2026):</strong> Issued preliminary injunction against Kalshi, creating a circuit split</li>
+        <li><strong>Arizona (March 2026):</strong> Filed 20-count criminal information against Kalshi for operating &ldquo;illegal gambling&rdquo; without a state license</li>
+        <li>As of early 2026: <strong>19 federal lawsuits</strong> challenging prediction market platform legality</li>
+      </ul>
+      <div class="highlight">
+        <strong>GC perspective:</strong> This federal-vs-state tension is exactly where Plaee&rsquo;s GC will spend significant time. Understanding both the CFTC regulatory framework and state-by-state gambling law is essential.
+      </div>
+      <div class="source">Source: <a href="https://www.stinson.com/newsroom-publications-sportsbooks-or-commodity-exchanges-the-rising-legal-tensions-between-sports-betting-and-prediction-markets" target="_blank">Stinson LLP</a> &bull; <a href="https://www.mondaq.com/unitedstates/commoditiesderivativesstock-exchanges/1724168/disagreement-deepens-among-federal-courts-over-whether-sports-event-contracts-are-subject-to-state-regulation" target="_blank">Mondaq</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Israel Gambling Law</h3>
+      <p>Since Plaee has operations in Israel (Ramat Gan) with some corporate presence in Cyprus:</p>
+      <ul>
+        <li>Online gambling is <strong>largely prohibited</strong> in Israel under the Penal Law</li>
+        <li>Israeli companies commonly structure gambling/gaming operations through <strong>offshore entities</strong> (e.g., Cyprus, Malta, Gibraltar) to serve international markets</li>
+        <li>Plaee&rsquo;s April 2026 press release lists its contact address as <strong>Limassol, Cyprus</strong></li>
+        <li>This structure is common in the Israeli gaming tech industry &mdash; the R&amp;D team operates from Israel while the regulated entity sits in a jurisdiction with a licensing framework</li>
+      </ul>
+      <div class="highlight yellow">
+        <strong>Interview note:</strong> Be prepared to discuss how to structure multi-entity corporate architectures that separate technology development (Israel) from regulated gaming operations (Cyprus/other jurisdictions).
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5: COMPETITORS & MARKET -->
+  <!-- ============================================================ -->
+  <section id="s5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <h2>Competitors &amp; Market Context</h2>
+    </div>
+
+    <div class="card">
+      <h3>Prediction Market Competitors (B2C Platforms)</h3>
+      <p>These are not direct competitors (they&rsquo;re consumer-facing, not B2B), but they define the market Plaee serves:</p>
+      <table>
+        <thead><tr><th>Platform</th><th>Type</th><th>Regulatory Status</th><th>Key Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Kalshi</strong></td><td>CFTC-registered DCM</td><td>Fully regulated</td><td>$52B+ in event contracts; $260M fee revenue; $22B valuation; 87% volume from sports; first US-approved prediction market</td></tr>
+          <tr><td><strong>Polymarket</strong></td><td>Crypto-native / DCM</td><td>Acquired CFTC license via QCEX ($112M)</td><td>$10.57B monthly volume (Mar 2026); $8B valuation with NYSE/ICE investment; banned in 33+ countries</td></tr>
+          <tr><td><strong>PredictIt</strong></td><td>Academic / CFTC no-action letter</td><td>Limited (academic exemption)</td><td>Operated under Victoria University no-action letter; CFTC revoked letter in 2022</td></tr>
+          <tr><td><strong>Augur</strong></td><td>Decentralized (Ethereum)</td><td>Unregulated / DeFi</td><td>Open-source, fully on-chain; limited adoption; regulatory gray area</td></tr>
+        </tbody>
+      </table>
+      <div class="source">Source: <a href="https://www.britannica.com/money/Kalshi-Inc" target="_blank">Britannica</a> &bull; <a href="https://www.wealthsolutionsreport.com/kalshi-and-the-rise-of-regulated-event-contract-trading/" target="_blank">Wealth Solutions Report</a></div>
+    </div>
+
+    <div class="card">
+      <h3>B2B Prediction Market Infrastructure Competitors</h3>
+      <p>These are Plaee&rsquo;s direct competitors in the turnkey/white-label space:</p>
+      <table>
+        <thead><tr><th>Company</th><th>Offering</th><th>Differentiation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TRUEiGTECH</strong></td><td>Enterprise-grade prediction market platform for operators</td><td>Strong iGaming-native workflows, compliance modules, multi-market categories</td></tr>
+          <tr><td><strong>Leverate</strong></td><td>Prediction market platform (entered 2026)</td><td>Claims sub-week deployment; leverages brokerage infrastructure experience</td></tr>
+          <tr><td><strong>Azuro</strong></td><td>On-chain prediction/betting infrastructure</td><td>DeFi-native protocol layer, liquidity tree model, multiple front-end operators</td></tr>
+          <tr><td><strong>Tecpinion</strong></td><td>Custom prediction market development</td><td>Real-time trading systems, AI analytics, bespoke builds</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight green">
+        <strong>Plaee&rsquo;s edge:</strong> Only turnkey provider offering both CFTC-regulated US access (via Crypto.com) AND a global DeFi track &mdash; this dual approach is unique in the market.
+      </div>
+      <div class="source">Source: <a href="https://next.io/news/b2b-news/trueigtech-unveils-enterprise-grade-prediction-market-platform-for-operators/" target="_blank">NEXT.io</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Market Size &amp; Opportunity</h3>
+      <ul>
+        <li>Prediction market opportunity projected at up to <strong>$1 trillion</strong> (cited in Plaee-Crypto.com partnership announcement)</li>
+        <li>Total market volume: <strong>$44B+ in 2025</strong> (10x year-over-year growth); on pace for <strong>$200B-$325B annually in 2026</strong></li>
+        <li>Kalshi alone has processed <strong>$52 billion</strong> in event contracts; $260M in fee revenue; 87% of volume from sports</li>
+        <li>Polymarket: <strong>$10.57B monthly volume</strong> (March 2026); $8B valuation with NYSE/ICE investment</li>
+        <li>Robinhood entered via Kalshi partnership &mdash; estimates <strong>$300M annual revenue</strong> from prediction markets</li>
+        <li>Decentralized prediction markets projected to reach <strong>$95.5B by 2035</strong> (46.8% CAGR)</li>
+        <li>Sweepstakes casino market was ~$6 billion in 2025, projected $5.6 billion in 2026 (contracting due to state bans)</li>
+        <li>CFTC DCM applications have <strong>more than doubled</strong> in the past year, with the majority from prediction market operators</li>
+        <li>Kalshi &amp; Polymarket control <strong>~97.5% of prediction market share</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Sweepstakes Casino Infrastructure Competitors</h3>
+      <p>For Plaee&rsquo;s sweepstakes business, key B2B competitors include:</p>
+      <ul>
+        <li><strong>Pragmatic Solutions</strong> (also an inabit client) &mdash; iGaming platform provider</li>
+        <li><strong>Various white-label casino platforms</strong> serving the social/sweepstakes market</li>
+        <li>Plaee differentiates by combining prediction markets + sweepstakes in a single platform with shared CRM/BI tools</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 6: LIKELY INTERVIEW QUESTIONS -->
+  <!-- ============================================================ -->
+  <section id="s6">
+    <div class="section-header">
+      <div class="section-number">06</div>
+      <h2>Likely Interview Questions</h2>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent);">REGULATORY KNOWLEDGE</div>
+      <div class="question">How would you structure Plaee&rsquo;s operations to comply with CFTC event contract regulations while also managing the sweepstakes business across multiple US states?</div>
+      <div class="guidance">
+        <strong>Framework:</strong> Explain the dual regulatory regime: CFTC for prediction markets (federal, exclusive jurisdiction per KalshiEx v. CFTC) vs. state-by-state sweepstakes regulation. Reference the Third Circuit ruling (April 2026) supporting federal pre-emption for event contracts. For sweepstakes, discuss the three-element gambling test (consideration, chance, prize) and how the free-entry mechanism removes consideration. Acknowledge the state ban trend (6 states in 2025) and discuss a compliance matrix approach to track which states remain viable. Mention that Plaee&rsquo;s Crypto.com partnership already provides the CFTC-regulated exchange infrastructure.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent);">COMPLIANCE</div>
+      <div class="question">What AML/KYC framework would you implement for our B2C gaming operations?</div>
+      <div class="guidance">
+        <strong>Key points:</strong> Discuss risk-based approach &mdash; tiered KYC (simplified for low-value, enhanced for high-value players), transaction monitoring with automated suspicious activity detection, SAR filing procedures, PEP screening, and beneficial ownership verification. Reference the CFTC&rsquo;s insider trading advisory (Feb 2026) and the need for market manipulation detection. For inabit&rsquo;s payment layer, discuss how self-custodial architecture affects AML obligations &mdash; even though users control their own keys, the platform still needs to comply with AML as a regulated entity. Mention SOC 2 Type II as a foundation for compliance controls.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent3);">CORPORATE STRUCTURE</div>
+      <div class="question">How would you advise on structuring the Plaee group across jurisdictions &mdash; Israel, Cyprus, and the US?</div>
+      <div class="guidance">
+        <strong>Key points:</strong> Discuss the common Israel/Cyprus structure in gaming tech: R&amp;D and IP in Israel, regulated gaming entity in Cyprus (MGA license potential), US-facing operations through the Crypto.com DCM partnership (TSP/IB/FCM structure). Address transfer pricing between entities, substance requirements (real employees/decision-making in each jurisdiction), and the need to avoid piercing the corporate veil. Reference your experience with multi-jurisdictional structures at Odsy Foundation (Switzerland/global). Mention Plaee&rsquo;s press release listing Limassol, Cyprus as their contact address.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent4);">STRATEGIC</div>
+      <div class="question">What are the biggest legal risks facing Plaee in the next 12 months?</div>
+      <div class="guidance">
+        <strong>Top risks to discuss:</strong> (1) <strong>US state-level challenges</strong> to prediction markets (19 federal lawsuits pending; Massachusetts injunction vs. Third Circuit pre-emption creates circuit split). (2) <strong>Sweepstakes state bans accelerating</strong> (Florida HB 591 could add felony penalties). (3) <strong>CFTC rulemaking uncertainty</strong> &mdash; the ANPRM is requesting comments, and final rules could impose new requirements. (4) <strong>DeFi regulatory risk</strong> for the global track &mdash; international bans on prediction platforms (Polymarket banned in 33+ countries). (5) <strong>Insider trading enforcement</strong> creating liability exposure. Show you understand the landscape but frame each risk with mitigation strategies.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent2);">EXPERIENCE</div>
+      <div class="question">Tell us about your experience with crypto/blockchain legal work. How does it prepare you for a gaming/prediction market role?</div>
+      <div class="guidance">
+        <strong>Bridge your crypto experience to gaming:</strong> At dWallet Labs, you dealt with regulatory classification of digital assets, compliance frameworks, and cross-jurisdictional licensing &mdash; the same core skills needed for prediction markets. Odsy Foundation (Switzerland) exposed you to self-custodial custody models &mdash; directly relevant to inabit&rsquo;s TCM technology and Plaee&rsquo;s DeFi track. Emphasize that prediction markets are built on crypto/DeFi infrastructure, so your technical legal understanding is a significant advantage. Acknowledge the gaming-specific knowledge gap (sweepstakes law, gambling licensing) and frame it as a targeted learning curve on a strong existing foundation.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent);">PRACTICAL</div>
+      <div class="question">How would you build the legal function at Plaee from scratch?</div>
+      <div class="guidance">
+        <strong>90-day plan approach:</strong> <strong>Month 1:</strong> Audit all existing contracts, corporate entities, regulatory filings, and compliance gaps across the group. Map every jurisdiction where Plaee operates or plans to operate. <strong>Month 2:</strong> Establish core legal processes &mdash; contract templates (B2B operator agreements, B2C terms of service), compliance policies (AML/KYC, responsible gambling), IP protection strategy. <strong>Month 3:</strong> Build external counsel network across key jurisdictions (US gaming attorneys, Cyprus/MGA specialists, Israel corporate), implement contract management system, create board governance framework. <strong>Ongoing:</strong> Regulatory tracking dashboard for CFTC rulemaking, state sweepstakes laws, and international prediction market regulations.
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent3);">TECHNICAL</div>
+      <div class="question">How do you view the legal implications of self-custodial architecture vs. custodial models in the context of our platform?</div>
+      <div class="guidance">
+        <strong>Leverage your inabit/DeFi knowledge:</strong> Self-custodial architecture (inabit&rsquo;s TCM model) means the platform <strong>never takes custody</strong> of user funds &mdash; this has profound regulatory implications. It may reduce certain obligations under money transmission laws (since you&rsquo;re not holding funds), but doesn&rsquo;t eliminate AML/KYC requirements for the platform itself. Reference the FinCEN guidance on convertible virtual currency and unhosted wallets. For Plaee&rsquo;s DeFi track, discuss how smart contract-based settlement shifts risk &mdash; the platform provides the infrastructure but the execution is on-chain. Frame this as both a legal advantage (limited custody liability) and a challenge (ensuring compliance when you don&rsquo;t control the assets).
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label" style="color: var(--accent4);">COMMERCIAL</div>
+      <div class="question">Walk us through how you&rsquo;d structure a B2B agreement with a new prediction market operator wanting to use Plaee&rsquo;s platform.</div>
+      <div class="guidance">
+        <strong>Key commercial terms:</strong> Platform licensing fee structure (SaaS model, revenue share, or hybrid); operator&rsquo;s regulatory pathway (TSP, IB, or FCM &mdash; each has different obligations); data ownership and usage rights; liability allocation for user-facing compliance; IP licensing terms for white-label UI; SLA commitments (uptime, settlement speed); jurisdiction-specific addenda for markets the operator will serve; termination provisions accounting for regulatory changes; indemnification for regulatory actions. Show awareness of both the commercial and regulatory dimensions of each deal.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 7: SMART QUESTIONS TO ASK -->
+  <!-- ============================================================ -->
+  <section id="s7">
+    <div class="section-header">
+      <div class="section-number">07</div>
+      <h2>Smart Questions to Ask Them</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>About the Legal Function</h3>
+        <ul>
+          <li>&ldquo;Is this the first in-house legal hire, or is there existing legal infrastructure I&rsquo;d be building on?&rdquo;</li>
+          <li>&ldquo;What external counsel relationships are already in place, and in which jurisdictions?&rdquo;</li>
+          <li>&ldquo;What&rsquo;s the current state of the compliance and AML function for the B2C brands &mdash; is there an existing Compliance Officer I&rsquo;d be overseeing?&rdquo;</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>About Growth &amp; Strategy</h3>
+        <ul>
+          <li>&ldquo;How many operators are currently live on the platform, and what&rsquo;s the pipeline look like for the next 6-12 months?&rdquo;</li>
+          <li>&ldquo;Is there a fundraising round planned? Understanding the timeline helps me prioritize corporate governance work.&rdquo;</li>
+          <li>&ldquo;What new markets or product verticals is the company considering entering?&rdquo;</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>About the inabit Relationship</h3>
+        <ul>
+          <li>&ldquo;How is the legal function shared between Plaee and inabit? Would I be covering both entities?&rdquo;</li>
+          <li>&ldquo;Are there intercompany agreements in place between Plaee and inabit for the technology infrastructure services?&rdquo;</li>
+          <li>&ldquo;What&rsquo;s the corporate group structure &mdash; is Plaee a subsidiary of inabit, or are they sister companies under a holding entity?&rdquo;</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>About Regulatory Strategy</h3>
+        <ul>
+          <li>&ldquo;Beyond the Crypto.com partnership, is Plaee considering direct CFTC registration (e.g., as a DCM or through another structure)?&rdquo;</li>
+          <li>&ldquo;How is the company responding to the sweepstakes state bans &mdash; is there a strategy to transition affected operators to the prediction market product?&rdquo;</li>
+          <li>&ldquo;What&rsquo;s the company&rsquo;s appetite for regulatory engagement (lobbying, trade associations, comment letters on CFTC rulemaking)?&rdquo;</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 8: HOW TO PROJECT CONFIDENCE -->
+  <!-- ============================================================ -->
+  <section id="s8">
+    <div class="section-header">
+      <div class="section-number">08</div>
+      <h2>How to Project Confidence</h2>
+    </div>
+
+    <div class="do-card">
+      <div class="do-icon">1</div>
+      <div>
+        <h4>Lead with Your Unique Edge: Crypto-Native + Commercial Lawyer</h4>
+        <p>Most gaming lawyers don&rsquo;t understand DeFi, self-custodial wallets, or blockchain architecture. Most crypto lawyers don&rsquo;t have your depth in commercial contracts and corporate governance. You sit at the intersection &mdash; exactly where Plaee needs its GC.</p>
+      </div>
+    </div>
+
+    <div class="do-card">
+      <div class="do-icon">2</div>
+      <div>
+        <h4>Show You Understand the B2B/B2C Duality</h4>
+        <p>Demonstrate that you grasp how legal complexity multiplies when you&rsquo;re both a platform provider (B2B) and an operator (B2C). Use language like &ldquo;upstream and downstream legal risk&rdquo; to show strategic thinking about liability allocation.</p>
+      </div>
+    </div>
+
+    <div class="do-card">
+      <div class="do-icon">3</div>
+      <div>
+        <h4>Reference Specific Regulatory Developments</h4>
+        <p>Drop specific data points: &ldquo;The March 2026 CFTC ANPRM,&rdquo; &ldquo;the Third Circuit&rsquo;s pre-emption ruling in April,&rdquo; &ldquo;the six state sweepstakes bans last year.&rdquo; This signals you&rsquo;ve done your homework and can hit the ground running.</p>
+      </div>
+    </div>
+
+    <div class="do-card">
+      <div class="do-icon">4</div>
+      <div>
+        <h4>Frame Your Gaming Knowledge Gap as a Targeted Learning Curve</h4>
+        <p>Don&rsquo;t pretend you&rsquo;re a gaming law expert. Instead: &ldquo;My crypto regulatory experience covers 80% of what this role requires. The gaming-specific elements &mdash; sweepstakes mechanics, state gambling classifications &mdash; are a focused learning curve I&rsquo;m already researching.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="do-card">
+      <div class="do-icon">5</div>
+      <div>
+        <h4>Demonstrate Builder Mentality</h4>
+        <p>Plaee is an early-stage company. Show enthusiasm for building the legal function from scratch. Reference running your own firm as proof you can build systems, processes, and structures from zero.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 9: THINGS TO AVOID SAYING -->
+  <!-- ============================================================ -->
+  <section id="s9">
+    <div class="section-header">
+      <div class="section-number">09</div>
+      <h2>Things to Avoid Saying</h2>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>&ldquo;I&rsquo;ve never worked in gaming before&rdquo;</h4>
+        <p>Instead: &ldquo;My crypto/DeFi legal work is directly transferable &mdash; prediction markets are derivatives traded on blockchain infrastructure. I understand the technology, the regulatory frameworks, and how to navigate multi-jurisdictional compliance.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>&ldquo;Prediction markets are basically gambling&rdquo;</h4>
+        <p>This is a loaded legal characterization. Prediction markets are <strong>event contracts</strong> regulated by the CFTC as derivatives &mdash; the entire industry&rsquo;s legal argument rests on them NOT being gambling. The KalshiEx ruling explicitly found they are not &ldquo;gaming.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>&ldquo;The sweepstakes model seems legally risky&rdquo;</h4>
+        <p>Even though it is under regulatory pressure, this comes across as risk-averse rather than solution-oriented. Instead: &ldquo;The sweepstakes landscape is evolving rapidly. I&rsquo;d want to build a state-by-state compliance matrix and proactively identify alternatives where bans emerge.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>&ldquo;I&rsquo;m not familiar with CFTC regulation&rdquo;</h4>
+        <p>Even if US derivatives law isn&rsquo;t your core specialty, show you&rsquo;ve studied it. Reference KalshiEx v. CFTC, the ANPRM, and the staff advisory. Frame it as: &ldquo;I&rsquo;ve been deep-diving into the CFTC event contract framework, and I see clear parallels with the crypto regulatory work I&rsquo;ve done.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>&ldquo;What does inabit do exactly?&rdquo;</h4>
+        <p>You should already know this: inabit is a self-custodial crypto infrastructure company providing treasury, payments, and on/off-ramp solutions for businesses, founded by the same person (Leon Okun) who founded Plaee. Know the TCM technology, SOC 2 certification, and its role as Plaee&rsquo;s payment/custody backbone.</p>
+      </div>
+    </div>
+
+    <div class="avoid-card">
+      <div class="avoid-icon">X</div>
+      <div>
+        <h4>Don&rsquo;t criticize the Israel-based gambling operation structure</h4>
+        <p>Many Israeli gaming companies use offshore entities for regulated operations &mdash; this is standard industry practice. Don&rsquo;t question the corporate structure in a way that implies impropriety. Instead, demonstrate you can optimize and strengthen it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 10: FINAL CHEAT SHEET -->
+  <!-- ============================================================ -->
+  <section id="s10">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <h2>Final Cheat Sheet</h2>
+    </div>
+
+    <div class="card">
+      <h3>Key Numbers to Know</h3>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="value">$52B</div><div class="label">Kalshi Event Contracts (Mar 2026)</div></div>
+        <div class="kpi"><div class="value">1,600</div><div class="label">Event Contract Listings (2025)</div></div>
+        <div class="kpi"><div class="value">13 States</div><div class="label">Ban Sweepstakes (Apr 2026)</div></div>
+        <div class="kpi"><div class="value">$112M</div><div class="label">Polymarket QCEX Acquisition</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Key Legal References</h3>
+      <table>
+        <thead><tr><th>Reference</th><th>What It Is</th><th>Why It Matters</th></tr></thead>
+        <tbody>
+          <tr><td><strong>KalshiEx LLC v. CFTC</strong></td><td>DC District Court ruled event contracts are not gambling (Sep 2024); CFTC dropped appeal (May 2025)</td><td>Established that political event contracts on DCMs are legal</td></tr>
+          <tr><td><strong>CFTC ANPRM (March 2026)</strong></td><td>Advance Notice of Proposed Rulemaking on event contract regulation</td><td>Will shape the rules Plaee&rsquo;s US operations must follow</td></tr>
+          <tr><td><strong>CFTC Letter No. 26-08</strong></td><td>Staff advisory on DCM obligations for event contracts</td><td>Direct guidance on how prediction market exchanges should operate</td></tr>
+          <tr><td><strong>Third Circuit (April 2026)</strong></td><td>Held CEA pre-empts NJ gambling laws for sports event contracts on DCMs</td><td>Supports federal pre-emption argument for Plaee&rsquo;s US operations</td></tr>
+          <tr><td><strong>CFTC Insider Trading Advisory (Feb 2026)</strong></td><td>Addressed insider trading on prediction markets after Kalshi enforcement cases</td><td>Sets compliance expectations for market integrity</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Key People to Remember</h3>
+      <table>
+        <thead><tr><th>Person</th><th>Role</th><th>Relevance</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Leon Okun</strong></td><td>CEO &amp; Founder, Plaee; Founder, inabit</td><td>Your direct boss &mdash; finance/software background, crypto infrastructure visionary</td></tr>
+          <tr><td><strong>Liron Izkoviz</strong></td><td>COO, Plaee</td><td>Operational leader; close to inabit technology</td></tr>
+          <tr><td><strong>Dr. Moti Geva</strong></td><td>CTO, inabit</td><td>Ex-Head of Israel&rsquo;s CERT-IL; security architecture expert</td></tr>
+          <tr><td><strong>Liad Evron</strong></td><td>HR Business Partner</td><td>Job poster &mdash; likely coordinating interview process</td></tr>
+          <tr><td><strong>CFTC Chair Michael Selig</strong></td><td>CFTC Chairman</td><td>Driving prediction market rulemaking; key regulator to track</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Your Opening Pitch (60-Second Elevator Version)</h3>
+      <div class="highlight green">
+        &ldquo;I&rsquo;m a commercial and technology lawyer with 12+ years of experience and deep expertise in crypto/DeFi regulatory frameworks. As GC at dWallet Labs, I&rsquo;ve built legal operations for a company working on programmable signing and self-custodial technology &mdash; the same technology paradigm that underpins both Plaee and inabit. I&rsquo;ve navigated multi-jurisdictional regulatory landscapes from Switzerland to Israel to China, and I&rsquo;ve run my own firm, so I know how to build legal functions from zero. What excites me about Plaee is the B2B platform model &mdash; you&rsquo;re building the infrastructure layer for an industry that&rsquo;s projected to reach $1 trillion, and I want to be the legal architect who helps scale that safely and compliantly.&rdquo;
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Quick-Fire Terms to Know</h3>
+      <div style="margin-top:10px;">
+        <span class="tag purple">DCM (Designated Contract Market)</span>
+        <span class="tag green">CFTC Event Contracts</span>
+        <span class="tag blue">Sweepstakes Coins vs. Gold Coins</span>
+        <span class="tag yellow">Self-Custodial / Non-Custodial</span>
+        <span class="tag red">KYC/AML/SAR</span>
+        <span class="tag purple">TSP / IB / FCM</span>
+        <span class="tag green">TCM (Trusted Computing Mechanism)</span>
+        <span class="tag blue">ANPRM</span>
+        <span class="tag yellow">CEA (Commodity Exchange Act)</span>
+        <span class="tag red">Pre-emption (Federal vs. State)</span>
+        <span class="tag purple">White-Label Platform</span>
+        <span class="tag green">Oracle-Based Settlement</span>
+        <span class="tag blue">PlaeeOS</span>
+        <span class="tag yellow">DeFi Prediction Market (DPM)</span>
+        <span class="tag red">MGA License (Malta)</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Prepared for <strong>Maayan Saar</strong> &mdash; General Counsel Interview at Plaee</p>
+  <p style="margin-top:8px;">All information sourced from publicly available data as of May 2026. Verify key facts before the interview.</p>
+</footer>
+
+</body>
+</html>
